@@ -33,6 +33,18 @@ Here are eight methods created to cover the API testing scope which executes in 
               1- Updates the Bucket with Secret key which then required to fetch the Bucket Keys.
               2- Updates the Bucket with Write key which then required to write in the Bucket.
               3- Send the JSON Data (after encoding in UTF-8) in the POST request.
-              4- Assertion: After POST request, if HTTP status Code is 200 then this Testcase is pass
+              4- Assertion 1: After POST request, if HTTP status Code is 200 then this Testcase is pass
               5- Assertion 2: "test_cc_getKeyValues" function is called to verify data is successfully posted and can be retrieved after                  updating the Keys.
+  # 6- test_ff_updateBucketDefaultTtl(self):
+              1- This Function update the default_ttl value for the Bucket
+              2- Assertion 1: After POST request, if HTTP status Code is 200 then this Testcase is passed
+              3- Assertion 2: "test_cc_getKeyValues" function is called to verify data is successfully posted and can be retrieved after                  updating the default_ttl.
+  # 7- test_gg_getKeysList(self):
+              This functions lists the key/values in the bucket (Secret key is required to access the data)
+              Assertion: is applied on Response Received of the GET request and on the Data which we POSTED for this Key
+  # 8- test_hh_deleteBucket(self):
+              Bucket is Deleted in this function 
+              Assertion: GET request is made to verify Bucket does not exists and 404 Status code is returned.
+              then testcase is pass.
+
 
