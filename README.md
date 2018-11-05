@@ -2,18 +2,18 @@
 KVDB's REST API testing
 
 # Python Modules Used:
-1- json (Sending Json data in POST requests)
-2- unittest (Testing Framework which gives the capability for compiling, asserting and executing the Test Suits)
-3- urllib (This Module is being used for sending HTTP's POST, GET, UPDATE and DELETE REST reuests and receive responses)
+    1- json (Sending Json data in POST requests)
+    2- unittest (Testing Framework which gives the capability for compiling, asserting and executing the Test Suits)
+    3- urllib (This Module is being used for sending HTTP's POST, GET, UPDATE and DELETE REST reuests and receive responses)
 
 # Main Class:
-"KvdbApiTesting" is main class which extends the "unittest.TestCase" class
+    "KvdbApiTesting" is main class which extends the "unittest.TestCase" class
     - All the Testcases are written in the form of Methods which executes in alphabetical order.
     - If All the testcases Pass no error appears, result Appear as:
     - Ran XX tests in XXX seconds
     - "OK" appears at the bottom
 # Methods in the Class:
-Here are eight methods created to cover the API testing scope which executes in Alphabetical order. Each method starts with "test" keywword which is unittest module naming convention requirement for methods to be considered for auto execution:
+    Here are eight methods created to cover the API testing scope which executes in Alphabetical order. Each method starts with "test"       keywword which is unittest module naming convention requirement for methods to be considered for auto execution:
   # 1- test_aa_createSimpleBucket(self):
             This function creates a Bucket, Asserion is applied on Bucket String length, if its is equal to 22 characters this case                   considered as pass
   # 2- test_bb_updateBucketSecretKey(self):
