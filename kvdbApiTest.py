@@ -27,7 +27,7 @@ class KvdbApiTesting(unittest.TestCase):
     def setUp(self):
         
         KvdbApiTesting.testCaseCounter = KvdbApiTesting.testCaseCounter+1
-        print("TestCase#:  ",KvdbApiTesting.testCaseCounter," Started")
+        print("TestCase #:  ",KvdbApiTesting.testCaseCounter," Execution Started!")
         
        
     def test_aa_createSimpleBucket(self):
@@ -38,7 +38,6 @@ class KvdbApiTesting(unittest.TestCase):
         f = urllib2.urlopen(req) ## Creating a New Bcket
         for x in f:
             KvdbApiTesting.bucket=x.decode('utf-8')
-            print("Simple--- Bucket Created:", KvdbApiTesting.bucket)
         self.assertEqual(len(KvdbApiTesting.bucket),22)     ### Verifiy Bucket is created as per specs (String Lenght is 22 characters)
 
     def test_bb_updateBucketSecretKey(self):
@@ -53,7 +52,6 @@ class KvdbApiTesting(unittest.TestCase):
         KvdbApiTesting.data = json.dumps(KvdbApiTesting.values).encode("utf-8")
         req = urllib2.Request(KvdbApiTesting.url, KvdbApiTesting.data,{'Content-Type': 'application/json'})
         f = urllib2.urlopen(req)
-        print("Status Code--- updateBucketSecretKey: ",f.getcode())
         self.assertEqual(f.getcode(),200)   ### Verify API response returns Success code 200
 
     def test_dd_retrieveWithoutSecretKey(self):
@@ -82,7 +80,6 @@ class KvdbApiTesting(unittest.TestCase):
         for x1 in f:
             fetchedResponse1=x1.decode('utf-8')
             fetchedResponse=x1
-            print("Response--- getKeyValues", fetchedResponse1)
         self.assertEqual(fetchedResponse, KvdbApiTesting.data)    
 
     def test_ee_updateBucketSecretAndWriteKeys(self):
@@ -97,7 +94,6 @@ class KvdbApiTesting(unittest.TestCase):
         KvdbApiTesting.data = json.dumps(KvdbApiTesting.values).encode("utf-8")
         req = urllib2.Request(KvdbApiTesting.url, KvdbApiTesting.data,{'Content-Type': 'application/json'})
         f = urllib2.urlopen(req)
-        print("Status Code--- updateBucketSecretAndWriteKey: ",f.getcode())
         self.assertEqual(f.getcode(),200)   ### Verify API response returns Success code
         ###
         ### Now Calling "test_cc_retrieveWithKey" function to verify that data can be retrived with updated keys
@@ -115,7 +111,6 @@ class KvdbApiTesting(unittest.TestCase):
         KvdbApiTesting.data = json.dumps(KvdbApiTesting.values).encode("utf-8")
         req = urllib2.Request(KvdbApiTesting.url, KvdbApiTesting.data,{'Content-Type': 'application/json'})
         f = urllib2.urlopen(req)
-        print("Status Code--- updateBucketDefaultTtl: ",f.getcode())
         self.assertEqual(f.getcode(),200)   ### Verify API response returns Success code
         ###
         ### Now Calling "test_cc_retrieveWithKey" function to verify that data can be retrived with updated keys
@@ -133,8 +128,6 @@ class KvdbApiTesting(unittest.TestCase):
         f = urllib2.urlopen(req)
         for x1 in f:
             fetchedResponse1=x1.decode('utf-8')
-            fetchedResponse=x1
-            print("Response--- getKeysList", fetchedResponse)
         self.assertEqual(fetchedResponse, KvdbApiTesting.data)
         
     def test_hh_deleteBucket(self):
@@ -149,7 +142,6 @@ class KvdbApiTesting(unittest.TestCase):
         for x1 in f:
             fetchedResponse1=x1.decode('utf-8')
             fetchedResponse=x1
-            print("Response--- deleteBucket", fetchedResponse)
 
         req = urllib2.Request(KvdbApiTesting.url)   ## GET Request After Deleting Bucket
         try:
